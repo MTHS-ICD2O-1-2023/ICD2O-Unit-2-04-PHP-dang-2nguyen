@@ -27,27 +27,22 @@
         <div class="right-image">
           <img src="./images/area_of_trinagle.png" alt="laptop image" width="250" />
         </div>
-        <br />
-        <div class="page-content">Enter the length and base in cm.</div>
         <div class="page-content-php">
-          <form action="answer.php" method="POST">
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="length-of-triangle">
-              <label class="mdl-textfield__label" for="length-of-triangle">Length of triangle (cm)</label>
-              <span class="mdl-textfield__error">Input is not a number!</span>
-            </div>
-            <br />
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="base-of-triangle">
-              <label class="mdl-textfield__label" for="base-of-triangle">base of triangle (cm)</label>
-              <span class="mdl-textfield__error">Input is not a number!</span>
-            </div>
-            <br />
-            <!-- Accent-colored raised button with ripple -->
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-              Calculate
-            </button>
-          </form>
+          <div id="user-info">
+            <?php
+            $lengthOfTriangle = $_POST["length-of-triangle"];
+            $baseOfTriangle = $_POST["base-of-triangle"];
+
+            // process
+            $area = ($lengthOfTriangle * $baseOfTriangle)/2;
+
+            // output
+            echo "If a rectangle has length = " . $lengthOfTriangle . " cm and the width = " . $baseOfTriangle . " cm:";
+            echo "<br />";
+            echo "<br />";
+            echo "The area of the rectangle is " . $area . " cm².";
+            ?>
+          </div>
         </div>
       </main>
     </div>
